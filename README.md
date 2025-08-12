@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎙️ Next.js TTS (Text-to-Speech) Application
 
-## Getting Started
+A modern, responsive web application that converts text to speech using Next.js 14 and ElevenLabs API. Features a clean interface with real-time voice synthesis capabilities and professional audio output.
 
-First, run the development server:
+## ✨ Features
 
+- **Professional TTS**: High-quality voice synthesis using ElevenLabs API
+- **Real-time Audio**: Instant text-to-speech conversion
+- **Audio Controls**: Play, pause, seek, and volume controls
+- **Download & Share**: Save audio files and share via link
+- **Dark/Light Mode**: Toggle between themes
+- **Responsive Design**: Works on desktop and mobile
+- **Character Counter**: Real-time text statistics
+- **Modern UI**: Built with Tailwind CSS
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js 18.0 or higher
+- npm or yarn package manager
+- ElevenLabs API key (get from [elevenlabs.io](https://elevenlabs.io))
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd 24-task
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   Create a `.env.local` file:
+   ```env
+   ELEVENLABS_API_KEY=your_api_key_here
+   ```
+
+4. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🛠️ Usage
+
+### Web Interface
+
+1. **Enter Text**: Type your message in the text area
+2. **Convert**: Click "Convert to Voice" to generate speech
+3. **Play**: Use the audio player to listen
+4. **Download**: Save the audio as MP3
+5. **Share**: Copy link or share directly
+
+### API Usage
+
+#### POST `/api/tts`
+
+**Request:**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+curl -X POST http://localhost:3000/api/tts \
+  -H "Content-Type: application/json" \
+  -d '{"text":"Hello, this is a test message"}'
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Response:** Audio file (MP3 format)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🏗️ Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+24-task/
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── tts/
+│   │   │       └── route.js          # TTS API with ElevenLabs
+│   │   ├── globals.css               # Global styles
+│   │   ├── layout.js                 # Root layout
+│   │   └── page.js                   # Main UI component
+├── public/                           # Static assets
+├── package.json                      # Dependencies
+├── next.config.mjs                   # Next.js config
+├── tailwind.config.js               # Tailwind config
+└── README.md                        # This file
+```
 
-## Learn More
+## 🎨 Customization
 
-To learn more about Next.js, take a look at the following resources:
+### Voice Selection
+The app uses ElevenLabs voice ID `MFZUKuGQUsGJPQjTS4wC`. To change:
+1. Update the voice ID in `src/app/api/tts/route.js`
+2. Get voice IDs from [ElevenLabs dashboard](https://elevenlabs.io/app/voices)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Styling
+- Modify themes in `src/app/globals.css`
+- Update Tailwind config in `tailwind.config.js`
+- Colors defined in dark/light mode variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔧 Development
 
-## Deploy on Vercel
+### Scripts
+- `npm run dev` - Development server
+- `npm run build` - Production build
+- `npm start` - Production server
+- `npm run lint` - Code linting
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Environment Variables
+```env
+ELEVENLABS_API_KEY=your_api_key
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 Browser Support
+
+- Chrome (recommended)
+- Firefox
+- Safari
+- Edge
+- Mobile browsers
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Open Pull Request
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🆘 Support
+
+- Create an issue for bugs
+- Check existing issues before reporting
+- Provide clear reproduction steps
+
+---
+
+**Built with ❤️ using Next.js 14, Tailwind CSS, and ElevenLabs API**
